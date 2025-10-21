@@ -5,7 +5,7 @@ build/
 !**/src/test/**/build/
 .kotlin
 
-Main.java
+src/main/java/com/maingroon/Main.java
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
