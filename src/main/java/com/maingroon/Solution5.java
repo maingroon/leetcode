@@ -25,7 +25,7 @@ public class Solution5 {
         return s.substring(start, start + maxLen);
     }
 
-    public int findPalindromeRadius(String s, int left, int right) {
+    private int findPalindromeRadius(String s, int left, int right) {
         int radius = 0;
         while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
             radius++;
