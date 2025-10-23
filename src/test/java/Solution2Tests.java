@@ -9,6 +9,7 @@ public class Solution2Tests {
 
     private void checkListNodeEquality(Solution2.ListNode expected, Solution2.ListNode actual) {
         while (expected != null) {
+            assertNotNull(actual);
             assertEquals(expected.val, actual.val);
 
             expected = expected.next;
@@ -27,9 +28,9 @@ public class Solution2Tests {
         input2 = new Solution2.ListNode(6, input2);
         input2 = new Solution2.ListNode(5, input2);
 
-        Solution2.ListNode expected = new Solution2.ListNode(7);
+        Solution2.ListNode expected = new Solution2.ListNode(8);
         expected = new Solution2.ListNode(0, expected);
-        expected = new Solution2.ListNode(8, expected);
+        expected = new Solution2.ListNode(7, expected);
 
         Solution2.ListNode actual = solution.addTwoNumbers(input1, input2);
         checkListNodeEquality(expected, actual);
