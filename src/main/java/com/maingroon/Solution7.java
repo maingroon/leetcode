@@ -4,6 +4,9 @@ public class Solution7 {
     public int reverse(int x) {
         int reversed = 0;
         while (x != 0) {
+            if (reversed < Integer.MIN_VALUE / 10 || reversed > Integer.MAX_VALUE / 10) {
+                return 0;
+            }
             reversed *= 10;
             reversed += (x % 10);
             x /= 10;

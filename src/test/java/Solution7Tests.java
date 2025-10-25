@@ -24,4 +24,10 @@ public class Solution7Tests {
         int input = 120;
         assertEquals(21, solution.reverse(input));
     }
+
+    @Test
+    void overflowTest() {
+        int input = 1534236469;
+        assertEquals(0, solution.reverse(input));
+    }
 }
