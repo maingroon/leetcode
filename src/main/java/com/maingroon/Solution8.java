@@ -25,7 +25,7 @@ public class Solution8 {
                     signNum = 1;
                 }
                 if (c != '0' || result != 0) {
-                    if (result * 10 + c - '0' < result) {
+                    if (result > Integer.MAX_VALUE / 10 || (result == Integer.MAX_VALUE / 10 && (c - '0' > 6))) {
                         result = Integer.MAX_VALUE;
                         allCharsAllowed = false;
                     } else {
