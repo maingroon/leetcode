@@ -50,8 +50,14 @@ public class Solution8Tests {
     }
 
     @Test
-    void nearOverflowTest() {
+    void nearOverflowPositiveTest() {
         String input = "2147483646";
         assertEquals(2147483646, solution.myAtoi(input));
+    }
+
+    @Test
+    void nearOverflowNegativeTest() {
+        String input = "-2147483647";
+        assertEquals(-2147483647, solution.myAtoi(input));
     }
 }
