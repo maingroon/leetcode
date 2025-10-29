@@ -25,24 +25,20 @@ public class Solution8 {
                     signNum = 1;
                 }
                 if (c != '0' || result != 0) {
-                    if (result > Integer.MAX_VALUE / 10 || (result == Integer.MAX_VALUE / 10 && (c - '0' > 6))) {
+                    if (signNum > 0 && result > Integer.MAX_VALUE / 10 || (result == Integer.MAX_VALUE / 10 && (c - '0' > 6))) {
                         result = Integer.MAX_VALUE;
+                        allCharsAllowed = false;
+                    } else if (signNum < 0 && result < Integer.MIN_VALUE / 10 || (result == Integer.MIN_VALUE / 10 && (c - '0' > 7))) {
+                        result = Integer.MIN_VALUE;
                         allCharsAllowed = false;
                     } else {
                         result *= 10;
-                        result += c - '0';
+                        result += signNum * (c - '0');
                     }
                 }
                 charIdx++;
             } else {
                 allCharsAllowed = false;
-            }
-        }
-        if (signNum == -1) {
-            if (!allCharsAllowed && result == Integer.MAX_VALUE) {
-                result = Integer.MIN_VALUE;
-            } else {
-                result *= signNum;
             }
         }
         return result;
