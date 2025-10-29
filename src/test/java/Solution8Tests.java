@@ -60,4 +60,16 @@ public class Solution8Tests {
         String input = "-2147483647";
         assertEquals(-2147483647, solution.myAtoi(input));
     }
+
+    @Test
+    void empty() {
+        String input = "";
+        assertEquals(0, solution.myAtoi(input));
+    }
+
+    @Test
+    void blank() {
+        String input = "    ";
+        assertEquals(0, solution.myAtoi(input));
+    }
 }
