@@ -1,6 +1,6 @@
 package com.maingroon;
 
-public class Solution5 {
+class Solution5 {
     public String longestPalindrome(String s) {
         if (s.length() <= 1) {
             return s;

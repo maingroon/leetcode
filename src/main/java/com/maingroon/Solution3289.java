@@ -2,7 +2,7 @@ package com.maingroon;
 
 import java.util.HashSet;
 
-public class Solution3289 {
+class Solution3289 {
 
     // this realization better for general tasks, not only for leetcode boundaries
     public int[] getSneakyNumbers(int[] nums) {
@@ -10,8 +10,7 @@ public class Solution3289 {
         int wi = 0;
 
         HashSet<Integer> existingNumbers = new HashSet<>();
-        for (int ri = 0; ri < nums.length; ri++) {
-            int num = nums[ri];
+        for (int num : nums) {
             if (existingNumbers.contains(num)) {
                 sneakyNumbers[wi] = num;
                 wi++;

@@ -1,9 +1,10 @@
-import com.maingroon.Solution6;
+package com.maingroon;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class Solution6Tests {
+class Solution6Tests {
 
     private final Solution6 solution = new Solution6();
 

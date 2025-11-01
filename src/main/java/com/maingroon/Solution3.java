@@ -1,6 +1,6 @@
 package com.maingroon;
 
-public class Solution3 {
+class Solution3 {
     public int lengthOfLongestSubstring(String s) {
         int max = 0;
         int left = 0;

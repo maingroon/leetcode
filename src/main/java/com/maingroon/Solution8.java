@@ -1,6 +1,6 @@
 package com.maingroon;
 
-public class Solution8 {
+class Solution8 {
     public int myAtoi(String s) {
         int charIdx = 0;
         while (charIdx < s.length() && s.charAt(charIdx) == ' ') {

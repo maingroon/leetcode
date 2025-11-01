@@ -1,6 +1,6 @@
 package com.maingroon;
 
-public class Solution1526 {
+class Solution1526 {
 
     public int minNumberOperations(int[] target) {
         int operations = target[0];

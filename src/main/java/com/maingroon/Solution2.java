@@ -10,20 +10,20 @@ package com.maingroon;
  * ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
-public class Solution2 {
+class Solution2 {
 
     public static class ListNode {
-        public int val;
-        public ListNode next;
+        int val;
+        ListNode next;
 
-        public ListNode() {
+        ListNode() {
         }
 
-        public ListNode(int val) {
+        ListNode(int val) {
             this.val = val;
         }
 
-        public ListNode(int val, ListNode next) {
+        ListNode(int val, ListNode next) {
             this.val = val;
             this.next = next;
         }

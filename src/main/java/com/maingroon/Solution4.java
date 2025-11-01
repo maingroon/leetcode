@@ -1,6 +1,6 @@
 package com.maingroon;
 
-public class Solution4 {
+class Solution4 {
 
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         if (nums1.length == 0 && nums2.length == 0) {

@@ -1,10 +1,11 @@
-import com.maingroon.Solution9;
+package com.maingroon;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class Solution9Tests {
+class Solution9Tests {
 
     private final Solution9 solution = new Solution9();
 

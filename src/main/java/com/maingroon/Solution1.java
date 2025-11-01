@@ -3,7 +3,7 @@ package com.maingroon;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Solution1 {
+class Solution1 {
     public int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> numIndexMap = new HashMap<>();
         for (int idx = 0; idx < nums.length; idx++) {

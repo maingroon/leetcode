@@ -1,6 +1,6 @@
 package com.maingroon;
 
-public class Solution7 {
+class Solution7 {
     public int reverse(int x) {
         int reversed = 0;
         while (x != 0) {
