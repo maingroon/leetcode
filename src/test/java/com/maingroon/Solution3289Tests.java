@@ -22,19 +22,19 @@ class Solution3289Tests {
 
     @Test
     void test1() {
-        int[] input = new int[]{0, 1, 1, 0};
+        int[] input = {0, 1, 1, 0};
         assertEqualsInAnyOrder(new int[]{0, 1}, solution.getSneakyNumbers(input));
     }
 
     @Test
     void test2() {
-        int[] input = new int[]{0, 3, 2, 1, 3, 2};
+        int[] input = {0, 3, 2, 1, 3, 2};
         assertEqualsInAnyOrder(new int[]{2, 3}, solution.getSneakyNumbers(input));
     }
 
     @Test
     void test3() {
-        int[] input = new int[]{7, 1, 5, 4, 3, 4, 6, 0, 9, 5, 8, 2};
+        int[] input = {7, 1, 5, 4, 3, 4, 6, 0, 9, 5, 8, 2};
         assertEqualsInAnyOrder(new int[]{4, 5}, solution.getSneakyNumbers(input));
     }
 }

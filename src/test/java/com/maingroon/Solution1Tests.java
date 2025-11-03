@@ -15,10 +15,10 @@ class Solution1Tests {
 
     @Test
     void twoNumsArray() {
-        int[] nums = new int[]{3, 3};
+        int[] nums = {3, 3};
         int target = 6;
 
-        int[] expected = new int[]{0, 1};
+        int[] expected = {0, 1};
         int[] actual = solution.twoSum(nums, target);
 
         checkAnswer(expected, actual);
@@ -26,10 +26,10 @@ class Solution1Tests {
 
     @Test
     void threeNumsArray() {
-        int[] nums = new int[]{3, 2, 4};
+        int[] nums = {3, 2, 4};
         int target = 6;
 
-        int[] expected = new int[]{1, 2};
+        int[] expected = {1, 2};
         int[] actual = solution.twoSum(nums, target);
 
         checkAnswer(expected, actual);
@@ -37,10 +37,10 @@ class Solution1Tests {
 
     @Test
     void fourNumsArray() {
-        int[] nums = new int[]{2, 7, 11, 15};
+        int[] nums = {2, 7, 11, 15};
         int target = 9;
 
-        int[] expected = new int[]{0, 1};
+        int[] expected = {0, 1};
         int[] actual = solution.twoSum(nums, target);
 
         checkAnswer(expected, actual);

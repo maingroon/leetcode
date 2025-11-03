@@ -22,7 +22,7 @@ class Solution3217Tests {
 
     @Test
     void test1() {
-        int[] nums = new int[]{1, 2, 3};
+        int[] nums = {1, 2, 3};
         ListNode head = new ListNode(5);
         head = new ListNode(4, head);
         head = new ListNode(3, head);
@@ -36,7 +36,7 @@ class Solution3217Tests {
 
     @Test
     void test2() {
-        int[] nums = new int[]{1};
+        int[] nums = {1};
         ListNode head = new ListNode(2);
         head = new ListNode(1, head);
         head = new ListNode(2, head);
@@ -52,7 +52,7 @@ class Solution3217Tests {
 
     @Test
     void test3() {
-        int[] nums = new int[]{5};
+        int[] nums = {5};
         ListNode head = new ListNode(4);
         head = new ListNode(3, head);
         head = new ListNode(2, head);

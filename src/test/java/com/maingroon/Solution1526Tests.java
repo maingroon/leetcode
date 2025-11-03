@@ -10,21 +10,21 @@ class Solution1526Tests {
 
     @Test
     void test1() {
-        int[] input = new int[]{1, 2, 3, 2, 1};
+        int[] input = {1, 2, 3, 2, 1};
         assertEquals(3, solution.minNumberOperations(input));
     }
 
 
     @Test
     void test2() {
-        int[] input = new int[]{3, 1, 1, 2};
+        int[] input = {3, 1, 1, 2};
         assertEquals(4, solution.minNumberOperations(input));
     }
 
 
     @Test
     void test3() {
-        int[] input = new int[]{3, 1, 5, 4, 2};
+        int[] input = {3, 1, 5, 4, 2};
         assertEquals(7, solution.minNumberOperations(input));
     }
 }
