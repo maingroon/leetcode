@@ -1,11 +1,27 @@
 package com.maingroon;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Solution3318 {
+
+    static class Pair {
+        int num;
+        int count;
+        Pair(int n, int c) {
+            num = n;
+            count = c;
+        }
+    }
+
+    static class PairComparator implements Comparator<Pair> {
+        @Override
+        public int compare(Pair a, Pair b) {
+            if (a.count != b.count) {
+                return Integer.compare(b.count, a.count);
+            }
+            return Integer.compare(b.num, a.num);
+        }
+    }
 
     public int[] findXSum(int[] nums, int k, int x) {
         int[] xSum = new int[nums.length - k + 1];
@@ -29,21 +45,16 @@ public class Solution3318 {
     }
 
     private int calculateSum(int x, Map<Integer, Integer> freq) {
-        List<int[]> list = new ArrayList<>();
+        List<Pair> list = new ArrayList<>();
         for (Map.Entry<Integer, Integer> entry : freq.entrySet()) {
-            list.add(new int[]{entry.getKey(), entry.getValue()});
+            list.add(new Pair(entry.getKey(), entry.getValue()));
         }
 
-        list.sort((a, b) -> {
-            if (a[1] == b[1]) {
-                return b[0] - a[0];
-            }
-            return b[1] - a[1];
-        });
+        list.sort(new PairComparator());
 
         int sum = 0;
         for (int i = 0; i < x && i < list.size(); i++) {
-            sum += list.get(i)[0] * list.get(i)[1];
+            sum += list.get(i).num * list.get(i).count;
         }
         return sum;
     }
