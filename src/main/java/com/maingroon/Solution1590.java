@@ -1,5 +1,8 @@
 package com.maingroon;
 
+import java.util.HashMap;
+import java.util.Map;
+
 class Solution1590 {
     public int minSubarray(int[] nums, int p) {
         int rem = 0;
