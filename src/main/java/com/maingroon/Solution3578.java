@@ -1,58 +1,47 @@
 package com.maingroon;
 
+import java.util.Deque;
+import java.util.LinkedList;
+
 public class Solution3578 {
 
     private static final int MOD = 1000000007;
 
     public int countPartitions(int[] nums, int k) {
-        long count = 1;
-        int begin = 0;
-        int min = 0;
-        int max = 0;
-        for (int cur = 1; cur < nums.length; cur++) {
-            int num = nums[cur];
-            if (num < nums[min]) {
-                min = cur;
+        long[] dp = new long[nums.length + 1];
+        long[] prefix = new long[nums.length + 1];
+        Deque<Integer> minQ = new LinkedList<>();
+        Deque<Integer> maxQ = new LinkedList<>();
+
+        dp[0] = 1;
+        prefix[0] = 1;
+        for (int i = 0, j = 0; i < nums.length; i++) {
+            while (!maxQ.isEmpty() && nums[maxQ.peekLast()] <= nums[i]) {
+                maxQ.pollLast();
             }
-            if (num > nums[max]) {
-                max = cur;
+            maxQ.offerLast(i);
+            while (!minQ.isEmpty() && nums[minQ.peekLast()] >= nums[i]) {
+                minQ.pollLast();
             }
-            while (diffGreater(nums[min], nums[max], k)) {
-                min = findMin(nums, begin + 1, cur);
-                max = findMax(nums, begin + 1, cur);
-                begin++;
+            minQ.offerLast(i);
+            while (
+                    !maxQ.isEmpty() &&
+                            !minQ.isEmpty() &&
+                            nums[maxQ.peekFirst()] - nums[minQ.peekFirst()] > k
+            ) {
+                if (maxQ.peekFirst() == j) {
+                    maxQ.pollFirst();
+                }
+                if (minQ.peekFirst() == j) {
+                    minQ.pollFirst();
+                }
+                j++;
             }
 
-            count += cur - begin;
+            dp[i + 1] = (prefix[i] - (j > 0 ? prefix[j - 1] : 0) + MOD) % MOD;
+            prefix[i + 1] = (prefix[i] + dp[i + 1]) % MOD;
         }
-        return (int) (count % MOD);
-    }
 
-    private boolean diffGreater(int a, int b, int k) {
-        return Math.abs((long) a - b) > k;
-    }
-
-    private int findMin(int[] nums, int from, int to) {
-        int min = nums[from];
-        from++;
-        while (from <= to) {
-            if (nums[from] <= nums[min]) {
-                min = from;
-            }
-            from++;
-        }
-        return min;
-    }
-
-    private int findMax(int[] nums, int from, int to) {
-        int max = nums[from];
-        from++;
-        while (from <= to) {
-            if (nums[from] >= nums[max]) {
-                max = from;
-            }
-            from++;
-        }
-        return max;
+        return (int) dp[nums.length];
     }
 }
