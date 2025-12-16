@@ -57,11 +57,11 @@ public class Solution3562 {
         int costWithDiscount = present[employee - 1] / 2;
         int profitWithDiscount = future[employee - 1] - costWithDiscount;
 
-        int[] dpChildrenNo = new int[budget + 1];
-        int[] dpChildrenYes = new int[budget + 1];
+        int[] dpWithoutChildren = new int[budget + 1];
+        int[] dpWithChildren = new int[budget + 1];
 
-        dpChildrenNo[0] = 0;
-        dpChildrenYes[0] = 0;
+        dpWithoutChildren[0] = 0;
+        dpWithChildren[0] = 0;
 
         List<int[][]> childResults = new ArrayList<>();
         for (int child : children[employee]) {
@@ -69,37 +69,28 @@ public class Solution3562 {
         }
 
         for (int[][] childRes : childResults) {
-            int[] childNoDiscount = childRes[0];
+            int[] childWithoutDiscount = childRes[0];
             int[] childWithDiscount = childRes[1];
 
-            dpChildrenNo = combine(dpChildrenNo, childNoDiscount);
-            dpChildrenYes = combine(dpChildrenYes, childWithDiscount);
+            dpWithoutChildren = combine(dpWithoutChildren, childWithoutDiscount);
+            dpWithChildren = combine(dpWithChildren, childWithDiscount);
         }
 
-        int[] dpNoDiscount = new int[budget + 1];
-        for (int b = 0; b <= budget; b++) {
-            dpNoDiscount[b] = dpChildrenNo[b];
-        }
+        int[] dpWithoutDiscount = calcDp(costWithoutDiscount, profitWithoutDiscount, dpWithoutChildren, dpWithChildren);
+        int[] dpWithDiscount = calcDp(costWithDiscount, profitWithDiscount, dpWithoutChildren, dpWithChildren);
+        return new int[][]{dpWithoutDiscount, dpWithDiscount};
+    }
 
-        for (int b = costWithoutDiscount; b <= budget; b++) {
-            int newProfit = dpChildrenYes[b - costWithoutDiscount] + profitWithoutDiscount;
-            if (newProfit > dpNoDiscount[b]) {
-                dpNoDiscount[b] = newProfit;
+    private int[] calcDp(int cost, int profit, int[] dpChildrenNo, int[] dpChildrenYes) {
+        int[] dp = new int[budget + 1];
+        System.arraycopy(dpChildrenNo, 0, dp, 0, budget + 1);
+
+        for (int b = cost; b <= budget; b++) {
+            int newProfit = dpChildrenYes[b - cost] + profit;
+            if (newProfit > dp[b]) {
+                dp[b] = newProfit;
             }
         }
-
-        int[] dpWithDiscount = new int[budget + 1];
-        for (int b = 0; b <= budget; b++) {
-            dpWithDiscount[b] = dpChildrenNo[b];
-        }
-
-        for (int b = costWithDiscount; b <= budget; b++) {
-            int newProfit = dpChildrenYes[b - costWithDiscount] + profitWithDiscount;
-            if (newProfit > dpWithDiscount[b]) {
-                dpWithDiscount[b] = newProfit;
-            }
-        }
-
-        return new int[][]{dpNoDiscount, dpWithDiscount};
+        return dp;
     }
 }
