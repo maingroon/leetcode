@@ -19,7 +19,7 @@ public class Solution2092 {
             int p2 = m[1];
             int time = m[2];
             timeMeetings
-                    .computeIfAbsent(time, _ -> new ArrayList<>())
+                    .computeIfAbsent(time, k -> new ArrayList<>())
                     .add(new int[]{p1, p2});
         }
 
@@ -33,10 +33,10 @@ public class Solution2092 {
                 int p1 = m[0];
                 int p2 = m[1];
                 meetList
-                        .computeIfAbsent(p1, _ -> new ArrayList<>())
+                        .computeIfAbsent(p1, k -> new ArrayList<>())
                         .add(p2);
                 meetList
-                        .computeIfAbsent(p2, _ -> new ArrayList<>())
+                        .computeIfAbsent(p2, k -> new ArrayList<>())
                         .add(p1);
             }
 
